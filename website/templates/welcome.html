@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Schocial</title>
+	{% load static %}
+    <link rel="stylesheet" href={%static "welcome-styles.css"%}>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="home-button">Schocial</div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="welcome-container">
+        <h1 class="site-title">Schocial</h1>
+        <h2 class="site-subtitle">Open Monday-Friday!</h2>
+
+
+        <div class="button-container">
+            <a href={% url "login"%}><button class="action-button" id="login-button">Login</button></a>
+            <a href={% url "signup"%}><button class="action-button" id="signup-button">Signup</button></a>
+        </div>
+    </div>
+</body>
+</html>

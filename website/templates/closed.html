@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops! We're Closed</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'closed-styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="home-button">Schocial</div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="oops-container">
+        <h1 class="oops-title">Oops!</h1>
+        <h2 class="oops-subtitle">The website isn't open today!</h2>
+        <p class="oops-message">We are only open from Monday-Friday</p>
+    </div>
+</body>
+</html>

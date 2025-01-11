@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+	{%load static%}
+    <link rel="stylesheet" href={%static "user-styles.css"%}>
+</head>
+<body>
+    <nav class="navbar">
+       <a href={%url "home"%}><div class="home-button">Schocial</div></a>
+       <div class="user-button"><a href={%url "user"%}><img src={%static "user-icon.png"%} height="80px" width="80px"></a></div>
+    </nav>
+    <div class="profile-container">
+        <!-- Profile Picture -->
+        <div class="profile-pic-container">
+            {% if pfp %}
+                <img src="/media/{{pfp}}" alt="Profile Picture" id="profile-pic" class="profile-pic">
+            {% else %}
+                <img src="/media/profile-placeholder.png" alt="Profile Picture" id="profile-pic" class="profile-pic">
+            {% endif %} 
+            <form method="POST" enctype="multipart/form-data" action="{% url "user" %}">
+                {% csrf_token %}
+                <input type="file" id="upload-pic"  name="upload" accept="image/*" required>
+                <button class="logout-button">Save</button>
+            </form>
+        </div>
+
+
+        <!-- Username Section -->
+        <div class="username-container">
+            <label for="username" class="label">Username: </label>
+            <div id="username"> {{ username }}</div>
+        </div>
+
+
+        <!-- Grade Section -->
+        <div class="grade-container">
+            <label for="grade" class="label">Grade: </label>
+            <div id="grade"> {{ grade }}</div>
+        </div>
+        <div>
+            <a href={%url "home"%}><button class="logout-button">Home</button></a>
+            <a href={%url "logout"%}><button class="logout-button">Logout</button></a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

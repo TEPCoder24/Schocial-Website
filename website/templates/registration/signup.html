@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Schocial</title>
+	{% load static %}
+    <link rel="stylesheet" href={%static "signup-styles.css"%}>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="home-button">Schocial</div>
+    </nav>
+
+
+    <!-- Signup Form -->
+    <div class="signup-container">
+        <h1 class="signup-title">Create Your Account</h1>
+        <form id="signup-form" action="{% url "signup"%}" method="POST", enctype="multipart/form-data">
+            {% csrf_token %}
+             {{form.email}}
+             <br>
+             {{form.username}}
+             <br>
+             {{form.password1}}
+             <br>
+             {{form.password2}}
+             <br>
+             {{form.grade}}
+             <br>
+             <label for="pfp">Profile Picture:</label>
+             <input name="pfp" type="file" accept="image/*">
+             {{form.errors}}
+           <a href={%url "home"%}> <button type="submit" class="signup-button">Sign Up</button></a>
+        </form>
+        <p class="login-link">Already have an account? <a href={%url "login"%}>Log in here.</a></p>
+    </div>
+</body>
+</html>
+
